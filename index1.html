@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynTaxfulFuture</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevents horizontal scroll from animations */
+        }
+        .hidden {
+            display: none;
+        }
+
+        /* Define custom keyframe animation for the fade-in effect on page load */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Apply the custom animation to hero section elements */
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        
+        /* Define custom keyframe animation for elements scrolling into view */
+        @keyframes fadeInOnScroll {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Class to be added by JavaScript to trigger the scroll animation */
+        .is-visible {
+            animation: fadeInOnScroll 1s ease-out forwards;
+        }
+
+        /* New styles for the quiz buttons and state */
+        .hide {
+            display: none;
+        }
+        .btn {
+            background-color: #f3f4f6;
+            color: #1f2937;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: left;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+        .btn:hover {
+            background-color: #e5e7eb;
+        }
+        .btn.selected {
+            background-color: #6366f1; /* Indigo */
+            color: #ffffff;
+        }
+        .btn.correct {
+            background-color: #10b981; /* Green */
+            color: #ffffff;
+            pointer-events: none; /* Disable clicking after selected */
+        }
+        .btn.wrong {
+            background-color: #ef4444; /* Red */
+            color: #ffffff;
+            pointer-events: none; /* Disable clicking after selected */
+        }
+        .question-result {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            text-align: left;
+        }
+        .question-result h4 {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        .question-result p {
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+        .question-result p[style*="color: rgb(40, 167, 69)"] { /* Matches the correct answer color from your JS */
+            color: #10b981 !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto flex flex-wrap justify-between items-center px-4">
+            <a href="#hero" class="text-2xl font-bold text-indigo-600">SynTaxful Future</a>
+            <nav class="flex flex-grow justify-end space-x-2 sm:space-x-4 md:space-x-6 font-medium mt-2 md:mt-0">
+                <a href="#about" class="hover:text-indigo-600 transition-colors duration-300">About</a>
+                <a href="#programs" class="hover:text-indigo-600 transition-colors duration-300">Programs</a>
+                <a href="#projects" class="hover:text-indigo-600 transition-colors duration-300">Projects</a>
+                <a href="#quiz" class="hover:text-indigo-600 transition-colors duration-300">Quiz</a>
+                <a href="#contact" class="hover:text-indigo-600 transition-colors duration-300">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-20 md:py-32">
+        <div class="container mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 animate-fadeInUp" style="animation-delay: 0.2s;">synTaxful futures</h1>
+            <p class="text-xl md:text-2xl mb-8 animate-fadeInUp" style="animation-delay: 0.4s;">Empowering the next generation of coders.</p>
+            <img src="assets/CodingKidPic.png" alt="A child learning to code" class="rounded-full w-48 h-48 mx-auto shadow-lg mb-8 animate-fadeInUp" style="animation-delay: 0.6s;">
+            <h2 class="text-lg md:text-xl font-semibold mb-2 animate-fadeInUp" style="animation-delay: 0.8s;">Prepare your child for the vast world of technological advances</h2>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-16 bg-white animate-on-scroll">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-900">A little background about me...</h1>
+            <div class="max-w-3xl mx-auto space-y-6 text-lg text-gray-700">
+                <p>I am currently a senior computer science student at my University. While my efforts and practices have brought me to a good standing, I can say that the ride was not a smooth one.</p>
+                <p>Before college, I was only exposed to computer science one time, yes, one time. I was lucky to be able to register for a Mobile CSP Course at my high school my freshman year. This course was my true introduction to computer science and inspired me to continue to pursue it as a major. Unfortunately, this course was later removed as the only available professor had other obligations that conflicted with our school, and a replacement was never sought out. Just like that, a candle was blown out.</p>
+                <p>My first semester as a Computer Science student was rough. I felt a constant overwhelmingness and my confidence lacked, while my peers who came from different areas were able to work through problems diligently.</p>
+                <p>It took me a while to understand and grasp concepts, but after getting the opportunity to meet some of my classmates, I came to a realization that my high school could have better prepared us for STEM majors such as Computer Science.</p>
+                <p>Fast forward to 2025, a quick browse of my high school's website informs me that there is now a computer science department listed under STEM.</p>
+                <p>I am glad that local schooling is finally taking the steps to prepare young students for the next level so they can feel confident, and that is what I intend to do with this program.</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-center mt-12 text-gray-900">Where schools lack, this program aims to build confidence in the coding skills of kids and teens through the use of hands-on practices.</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-16 bg-gray-200 animate-on-scroll">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-10 text-gray-900">Programs</h1>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 animate-on-scroll">
+                <li class="bg-white p-6 rounded-lg shadow-md font-medium text-lg text-gray-700 animate-on-scroll" style="animation-delay: 0.2s;">Project Based Learning</li>
+                <li class="bg-white p-6 rounded-lg shadow-md font-medium text-lg text-gray-700 animate-on-scroll" style="animation-delay: 0.4s;">Video Tutorials</li>
+                <li class="bg-white p-6 rounded-lg shadow-md font-medium text-lg text-gray-700 animate-on-scroll" style="animation-delay: 0.6s;">Interactive Quizzes</li>
+                <li class="bg-white p-6 rounded-lg shadow-md font-medium text-lg text-gray-700 animate-on-scroll" style="animation-delay: 0.8s;">In-person Meetings</li>
+                <li class="bg-white p-6 rounded-lg shadow-md font-medium text-lg text-gray-700 animate-on-scroll" style="animation-delay: 1s;">Virtual Meetings</li>
+            </ul>
+            <div class="flex flex-wrap justify-center gap-4 animate-on-scroll">
+                <a href="#projects" class="bg-indigo-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-indigo-700 transition-colors duration-300 transform hover:scale-105">Learn With Projects</a>
+                <a href="#quiz" class="bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105">Quizzes</a>
+                <a href="#contact" class="bg-teal-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300 transform hover:scale-105">Schedule In-person Meeting</a>
+                <a href="#contact" class="bg-gray-800 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-900 transition-colors duration-300 transform hover:scale-105">Virtual Meetings</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learn With Projects Section -->
+    <section id="projects" class="py-16 bg-white animate-on-scroll">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900">Learn with Projects</h1>
+            <p class="max-w-4xl mx-auto text-center text-lg text-gray-700 mb-12">At TaxfulFuture, we believe that project-based learning is essential to building foundational and practical coding skills that will stick.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- AI Projects -->
+                <div id="ai" class="bg-gray-50 p-6 rounded-lg shadow-md animate-on-scroll">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">AI</h2>
+                    <p class="text-gray-700 mb-4">Artificial Intelligence is a pivotal resource functioning in the median between humans and technology. An AI is a machine that is programmed to handle tasks ranging from problem solving, image generation, automation, and more.</p>
+                    <p class="text-gray-700 mb-4">As we move further to the future, the capability of AI continues to reach new heights. As programmers, it is important not to feel threatened by AI, but to instead work with AI to increase our understanding.</p>
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">Simple AI projects for beginners:</h3>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>ChatBot</li>
+                        <li>AI Helper</li>
+                        <li>AudioBook AI</li>
+                    </ul>
+                </div>
+                
+                <!-- OOP & Big Data Projects -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div id="oop" class="mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">OOP</h2>
+                        <p class="text-gray-700 mb-2">Object-Oriented Programming is a key CS principle.</p>
+                        <h3 class="text-xl font-semibold text-indigo-600 mb-2">OOP Projects:</h3>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                            <li>Family Tree</li>
+                            <li>Student Management</li>
+                            <li>Employee Accounts</li>
+                        </ul>
+                    </div>
+                    <div id="bigdata">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Big Data</h2>
+                        <p class="text-gray-700 mb-2">Big Data refers to extremely large datasets that are too complex to process with traditional data processing tools. Big data technologies allow organizations to store, analyze, and visualize massive amounts of information efficiently.</p>
+                        <p class="text-gray-700">Common tools in Big Data include Hadoop, Spark, and NoSQL databases, which are used for analytics, machine learning, and decision-making processes.</p>
+                    </div>
+                </div>
+
+                <!-- Gaming & Cyber Security Projects -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md animate-on-scroll" style="animation-delay: 0.4s;">
+                    <div id="gaming" class="mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Gaming</h2>
+                        <p class="text-gray-700 mb-2">Interested in game design? Modern game development often uses engines like Unity and Unreal Engine.</p>
+                        <h3 class="text-xl font-semibold text-indigo-600 mb-2">Gaming Projects:</h3>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                            <li>Roll a ball</li>
+                            <li>Flappy Bird remake</li>
+                            <li>Create a 2D game with C#</li>
+                        </ul>
+                    </div>
+                    <div id="cyber">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Cyber Security</h2>
+                        <p class="text-gray-700 mb-2">Cyber Security is the practice of protecting systems, networks, and data from digital attacks, theft, or damage. It involves securing software, hardware, and sensitive information from unauthorized access.</p>
+                        <p class="text-gray-700">Key areas include network security, encryption, threat detection, and ethical hacking to safeguard organizations and individuals from cyber threats.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="py-16 bg-gray-200 animate-on-scroll">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900">Quiz Your Child with Interactive Assessments</h1>
+            
+            <div id="quiz-container" class="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
+                <ul class="flex flex-wrap justify-center gap-4 text-center font-medium mb-12">
+                    <li><a href="#ProgrammingLanguages" class="bg-white text-gray-700 px-6 py-3 rounded-lg shadow-md hover:bg-indigo-100 transition-colors">Programming Languages</a></li>
+                    <li><a href="#Datastructures" class="bg-white text-gray-700 px-6 py-3 rounded-lg shadow-md hover:bg-indigo-100 transition-colors">Data Structures and Algorithms</a></li>
+                    <li><a href="#Cybersecurity" class="bg-white text-gray-700 px-6 py-3 rounded-lg shadow-md hover:bg-indigo-100 transition-colors">Cyber Security best Practices</a></li>
+                    <li><a href="#BigData" class="bg-white text-gray-700 px-6 py-3 rounded-lg shadow-md hover:bg-indigo-100 transition-colors">Analyzing Data</a></li>
+                </ul>
+
+                <div id="quiz-pl">
+                    <div id="level-selector" class="flex flex-col items-center">
+                        <h2 class="text-2xl font-semibold mb-6 text-gray-900">Select a Quiz Level</h2>
+                        <div class="space-x-4">
+                            <button class="level-btn bg-indigo-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-indigo-600 transition-colors transform hover:scale-105" data-level="beginner">Beginner</button>
+                            <button class="level-btn bg-indigo-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-indigo-600 transition-colors transform hover:scale-105" data-level="intermediate">Intermediate</button>
+                            <button class="level-btn bg-indigo-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-indigo-600 transition-colors transform hover:scale-105" data-level="expert">Expert</button>
+                        </div>
+                    </div>
+                    <div id="question-container" class="space-y-4 hidden flex-col">
+                        <h3 id="question" class="text-xl font-medium text-gray-800">Question</h3>
+                        <div id="answer-buttons" class="grid gap-4"></div>
+                        <button id="next-btn" class="bg-purple-600 text-white font-semibold py-2 px-6 rounded-full hover:bg-purple-700 transition-colors transform hover:scale-105 hide">Next</button>
+                    </div>
+                    <div id="result" class="text-lg font-bold text-green-600 hide"></div>
+                    <button id="restart-btn" class="bg-gray-800 text-white font-semibold py-2 px-6 rounded-full hover:bg-gray-900 transition-colors transform hover:scale-105 hide">Restart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white animate-on-scroll">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900">Contact Us</h1>
+            <div class="max-w-md mx-auto space-y-6">
+                <!-- Virtual Meetings Form -->
+                <div id="virtual-form" class="bg-gray-50 p-6 rounded-lg shadow-md text-left animate-on-scroll">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-900">Set up a Virtual 1-on-1 Demo</h2>
+                    <div class="space-y-4">
+                        <input type="text" placeholder="First Name" class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500 transition-colors duration-300">
+                        <input type="text" placeholder="Last Name" class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500 transition-colors duration-300">
+                        <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500 transition-colors duration-300">
+                        <button class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors duration-300 transform hover:scale-105">Submit Virtual Request</button>
+                    </div>
+                </div>
+
+                <!-- In-person Meetings Form -->
+                <div id="in-person-form" class="bg-gray-50 p-6 rounded-lg shadow-md text-left animate-on-scroll" style="animation-delay: 0.2s;">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-900">Set Up an In Person Meeting</h2>
+                    <div class="space-y-4">
+                        <input type="text" placeholder="City" class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500 transition-colors duration-300">
+                        <input type="text" placeholder="State" class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500 transition-colors duration-300">
+                        <input type="text" placeholder="Country" class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500 transition-colors duration-300">
+                        <button class="w-full bg-teal-600 text-white py-3 rounded-lg font-semibold hover:bg-teal-700 transition-colors duration-300 transform hover:scale-105">Submit In-Person Request</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <p>&copy; 2025 Joshua Omoruyi. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js"></script>
+    <script>
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Stop observing once the element is visible
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // Triggers when 10% of the element is visible
+            });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

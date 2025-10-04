@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Yourself</title>
+    <link rel="stylesheet" href="styles1.css">
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+    <section class="main">
+    <a href="index.html">Home</a>
+    <h1>Quiz your child with interactive assessments</h1>
+    <ul>
+        <li><a href="#ProgrammingLanguages">Programming Languages</a></li>
+    <li><a href="#Datastructures">Data Structures and Algorithms</a></li>
+    <li><a href="#Cybersecurity">Cyber Security best Practices</a></li>
+    <li><a href="#BigData">Analyzing Data</a></li>
+
+    </ul>
+    </section>
+    <section id="ProgrammingLanguages">
+        <div id="level-selector">
+  <h2>Select a Quiz Level</h2>
+  <button class="level-btn" data-level="beginner">Beginner</button>
+  <button class="level-btn" data-level="intermediate">Intermediate</button>
+  <button class="level-btn" data-level="expert">Expert</button>
+</div>
+        <div class="quiz-container">
+            
+            <div id="question-container">
+            <h3 id="question">Question</h3>
+            <div id="answer-buttons"></div>
+             </div>
+        
+        <button id="next-btn" class="btn hide">Next</button>
+        <div id="result" class="hide"></div>
+        <button id="restart-btn" class="btn hide">Restart</button>
+        </div>
+        
+        
+    </section>
+  
+
+</body>
+</html>
